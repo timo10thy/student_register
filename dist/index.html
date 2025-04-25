@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="student"></div>
+    <div id="js1"></div>
+    <div id="js2"></div>
+    <div id="js3"></div>
+    <div id="grading"></div>
+
+    <script>
+        let studentReg = [
+            {
+                name: 'paul samuel',
+                class: 'js2',
+                score: 80
+            },
+            {
+                name: 'rachael daksam',
+                class: 'js1',
+                score: 70
+            },
+            {
+                name: 'rejoice samson',
+                class: 'js3',
+                score: 80
+            },
+            {
+                name: 'jacob musa',
+                class: 'js1',
+                score: 30
+            },
+            {
+                name: 'dom code',
+                class: 'js3',
+                score: 35
+            },
+            {
+                name: 'nanret junior',
+                class: 'js2',
+                score: 20
+            }
+        ]
+
+        let student = document.querySelector("#student")
+        let title = document.createElement("h1")
+        title.innerText = "Student Data Base"
+        student.appendChild(title)
+
+        let studentRecord = document.createElement('div')
+        studentRecord.id = 'record'
+        student.appendChild(studentRecord)
+        let studentPrint = "<table><tr><th>SN</th><th>Name</th><th>Class</th><th>Score</th></tr>"
+        let Sn = 1
+
+        studentReg.forEach((std, index) => {
+            studentPrint += `<tr><td>${Sn++}.</td><td>${std.name}</td><td>${std.class}</td><td>${std.score}</td></tr>`
+
+        })
+        studentPrint += "</table><hr>"
+        studentRecord.innerHTML = studentPrint;
+
+        let js1 = []
+        let js2 = []
+        let js3 = []
+
+
+
+        studentReg.forEach((std, index) => {
+            if (std.class === 'js1') {
+                js1.push(std)
+            } else if (std.class === 'js2') {
+                js2.push(std)
+            } else if (std.class === "js3"){
+                js3.push(std)
+            }
+        })
+
+
+        let jsOne = document.querySelector('#js1')
+        let js1Student = document.createElement('h2')
+
+        js1Student.innerText = 'Name of students in js1'
+        jsOne.appendChild(js1Student)
+
+        let js1Record = document.createElement('div')
+        js1Record.id = 'one'
+        jsOne.append(js1Record)
+
+        let allJs1 = "<table><tr><th>SN</th><th>Name</th><th>class</th><th>score</th></tr>"
+        let jsSn = 1
+
+        js1.forEach((j1) => {
+
+            allJs1 += `<tr><td>${jsSn++}.</td><td>${j1.name}</td><td>${j1.class}</td><td>${j1.score}</td></tr>`
+        })
+        allJs1 += "</table>"
+        js1Record.innerHTML = allJs1
+
+        let js2class = document.querySelector('#js2')
+        let js2Stundent = document.createElement('h2')
+        js2Stundent.innerHTML = 'Name of students in js2'
+        js2class.append(js2Stundent)
+
+        let js2ClassStudent = document.createElement('div')
+        js2ClassStudent.id = 'two'
+        js2class.append(js2ClassStudent)
+        let allJs2 = "<table><tr><th>SN</th><th>Name</th><th>class</th><th>score</th></tr>"
+        let js2Sn = 1
+        js2.forEach((j2) => {
+            allJs2 += `<tr><td>${js2Sn++}.</td><td>${j2.name}</td><td>${j2.class}</td><td>${j2.score}</td></tr>`
+        })
+        allJs2 += "</table>"
+        js2ClassStudent.innerHTML = allJs2
+        
+        let Js3 = document.querySelector('#js3')
+        let js3Student = document.createElement('h2')
+        js3Student.innerHTML = "Name of Student in Js3"
+        Js3.appendChild(js3Student)
+
+        let js3Name = document.createElement('div')
+        js3Name.id = 'three'
+        Js3.appendChild(js3Name)
+        let allJs3 = "<table><tr><th>SN</th><th>Name</th><th>class</th><th>score</th></tr>"
+        let js3Sn = 1
+        js3.forEach((j3) => {
+            allJs3 += `<tr><td>${js3Sn++}.</td><td>${j3.name}</td><td>${j3.class}</td><td>${j3.score}</td></tr>`
+
+        })
+        allJs3 += '</table>'
+        js3Name.innerHTML = allJs3
+      
+
+
+        let gradeA = [],
+        gradeB = [],
+        gradeC =[],
+        gradeD =[],
+        gradeE =[],
+        gradeF =[]
+
+        studentReg.forEach((student) => {
+            let score =student.score
+            if (score >= 80) {
+                gradeA.push(student)
+            } else if (score >= 60) {
+                gradeB.push(student)
+            } else if (score >= 50){
+                gradeC.push(student)
+            } else if(score >= 40){
+                gradeD.push(student)
+            } else if(score >= 30){
+                gradeE.push(student)
+            } else{
+                gradeF.push(student)
+            }
+        })
+        let studentGrade = document.querySelector('#grading')
+        let studentpoint = document.createElement('h2')
+        studentpoint.innerHTML = 'Student and Their Grade'
+        studentGrade.appendChild(studentpoint)
+        let studentscore = document.createElement('div')
+        studentscore.id = 'score'
+        studentGrade.appendChild(studentscore)
+        function displayGrades(gradeArray, gradeLabel) {
+    if (gradeArray.length > 0) {
+        let tableTitle = document.createElement('h3')
+        tableTitle.innerText = `Grade ${gradeLabel}`
+        studentscore.appendChild(tableTitle)
+
+        let table = "<table><tr><th>SN</th><th>Name</th><th>Class</th><th>Score</th></tr>"
+        let sn = 1
+        gradeArray.forEach((student) => {
+            table += `<tr><td>${sn++}</td><td>${student.name}</td><td>${student.class}</td><td>${student.score}</td></tr>`
+        })
+        table += "</table><br>"
+        studentscore.innerHTML += table
+    }
+}
+
+// Show all grade groups
+displayGrades(gradeA, 'A')
+displayGrades(gradeB, 'B')
+displayGrades(gradeC, 'C')
+displayGrades(gradeD, 'D')
+displayGrades(gradeE, 'E')
+displayGrades(gradeF, 'F')
+
+
+
+    </script>
+</body>
+
+</html>
