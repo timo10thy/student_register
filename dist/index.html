@@ -13,6 +13,7 @@
     <div id="js2"></div>
     <div id="js3"></div>
     <div id="grading"></div>
+    <a href='https://github.com/' target='_blank' rel='noreferrer'>GITHUb</a>
 
     <script>
         let studentReg = [
@@ -47,7 +48,7 @@
                 score: 20
             }
         ]
-
+            // student dashboard
         let student = document.querySelector("#student")
         let title = document.createElement("h1")
         title.innerText = "Student Data Base"
@@ -82,7 +83,7 @@
             }
         })
 
-
+        // js1 student
         let jsOne = document.querySelector('#js1')
         let js1Student = document.createElement('h2')
 
@@ -102,7 +103,7 @@
         })
         allJs1 += "</table>"
         js1Record.innerHTML = allJs1
-
+            // js 2 record
         let js2class = document.querySelector('#js2')
         let js2Stundent = document.createElement('h2')
         js2Stundent.innerHTML = 'Name of students in js2'
@@ -119,6 +120,7 @@
         allJs2 += "</table>"
         js2ClassStudent.innerHTML = allJs2
         
+        // js3 record
         let Js3 = document.querySelector('#js3')
         let js3Student = document.createElement('h2')
         js3Student.innerHTML = "Name of Student in Js3"
@@ -136,7 +138,7 @@
         allJs3 += '</table>'
         js3Name.innerHTML = allJs3
       
-
+        // grading student
 
         let gradeA = [],
         gradeB = [],
@@ -184,7 +186,7 @@
     }
 }
 
-// Show all grade groups
+// student and their grade
 displayGrades(gradeA, 'A')
 displayGrades(gradeB, 'B')
 displayGrades(gradeC, 'C')
